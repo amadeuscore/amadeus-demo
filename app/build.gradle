@@ -7,6 +7,7 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
+    id 'java-library'
     id 'application'
 }
 
@@ -31,10 +32,19 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'amadeus.demo.App'
+    mainClass = 'amadeus.demo.TestRun'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+test {
+    dependsOn cleanTest{
+        testLogging {
+            outputs.upToDateWhen {false}
+            showStandardStreams = true
+        }
+    }
 }
+// tasks.named('TestRun') {
+//     // Use JUnit Platform for unit tests.
+//     useJUnitPlatform()
+
+// }

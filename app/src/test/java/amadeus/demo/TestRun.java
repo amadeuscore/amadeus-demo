@@ -1,4 +1,4 @@
-package amadeus;
+package amadeus.demo;
 
 import org.junit.Test;
 
